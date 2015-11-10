@@ -23,7 +23,9 @@ resource "atlas_artifact" "nodejs" {
 // TEMPLATES
 resource "template_file" "consul_upstart" {
   filename = "files/consul.sh"
-
+  
+  lifecycle { create_before_destroy = true }
+  
   vars {
     atlas_user_token = "${var.atlas_user_token}"
     atlas_username = "${var.atlas_username}"
