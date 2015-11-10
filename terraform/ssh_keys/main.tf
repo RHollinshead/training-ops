@@ -1,6 +1,6 @@
 variable "name" {}
 
-//SSH key Pair
+//SSH key Pair here
 resource "aws_key_pair" "mod" {
   key_name   = "${var.name}"
   public_key = "${file("${path.module}/${var.name}.pub")}"
